@@ -1,0 +1,17 @@
+{
+  "name": "joint-fantasy",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "observable preview",
+    "build": "observable build",
+    "clean": "rm -rf dist .observablehq/cache"
+  },
+  "devDependencies": {
+    "@observablehq/framework": "^1.0.0"
+  },
+  "dependencies": {
+    "@joint-fantasy/fpl-charts": "github:mitchelllisle/joint-fpl-lib",
+    "joint-fpl-lib": "^1.0.0"
+  }
+}
