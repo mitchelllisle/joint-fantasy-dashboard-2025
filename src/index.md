@@ -88,7 +88,7 @@ if (userInFirst.total && userInLast.total) {
         <br>
         <br>
         <span class="muted">
-            ${userInFirst.team} is winning with <b style="color: #6cc5b0">${userInFirst.total}</b> points. 
+            ${userInFirst.player_first_name} is winning with <b style="color: #6cc5b0">${userInFirst.total}</b> points. 
             He is <b style="color: #6cc5b0">${firstToSecondPointsGap}</b> points off ${userInSecond.player_first_name || "second place"} in second
             and <b style="color: #6cc5b0">${lastToFirstPointsGap}</b> points away from last.
         </span>
@@ -100,7 +100,7 @@ if (userInFirst.total && userInLast.total) {
         <br>
         <br>
         <span class="muted">
-            ${userInLast.team} is in last place on <b style="color: #ff725c">${userInLast.total}</b> points. 
+            ${userInLast.player_first_name} is in last place on <b style="color: #ff725c">${userInLast.total}</b> points. 
             He is <b style="color: #ff725c">${thirdToLastPointsGap}</b> points off ${userInThird.player_first_name || "third place"} in third
             and <b style="color: #ff725c">${lastToFirstPointsGap}</b> off first place.
         </span>
@@ -112,7 +112,10 @@ if (userInFirst.total && userInLast.total) {
 
 <div class="grid grid-cols-1">
   <div class="card">
-    ${resize((width) => bumpChart(matchResults.data, {Plot, d3, width}))}
+    ${resize((width) => bumpChart(matchResults.data, {
+      Plot, d3, width,
+      subtitle: summaries.chartSummaries.bumpChart.subtitle
+    }))}
   </div>
 
   <style>
@@ -150,10 +153,18 @@ const squadsUser = filterForInput(squads, player, "owner");
 
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => pointsPerWeek(matchResultsUser, {Plot, d3, width}))}
+    ${resize((width) => pointsPerWeek(matchResultsUser, {
+        Plot, 
+        d3, 
+        width,
+        subtitle: summaries.chartSummaries.pointsPerWeek.subtitle
+      }))}
   </div>
   <div class="card">
-    ${resize((width) => pointsBarChart(matchResultsUser, {Plot, d3, width}))}
+    ${resize((width) => pointsBarChart(matchResultsUser, {
+      Plot, d3, width,
+      subtitle: summaries.chartSummaries.pointsBarChart.subtitle
+    }))}
   </div>
 </div>
 
@@ -161,8 +172,7 @@ const squadsUser = filterForInput(squads, player, "owner");
   <div class="card">
     ${resize((width) => formChart(matchResultsUser, {
       Plot, d3, width,
-      title: summaries.formChartTitle,
-      subtitle: summaries.formChartSubtitle
+      subtitle: summaries.chartSummaries.formChart.subtitle
     }))}
     
   </div>
@@ -187,7 +197,10 @@ const squadsUser = filterForInput(squads, player, "owner");
 
 <div class="grid grid-cols-3">
   <div class="card" style="grid-column: span 2;">
-    ${resize((width) => bonusPoints(squadsUser, {Plot, d3, width}))}
+    ${resize((width) => bonusPoints(squadsUser, {
+      Plot, d3, width,
+      subtitle: summaries.chartSummaries.bonusPoints.subtitle
+    }))}
   </div>
   <div class="card">
     ${resize((width) => giniIndexChart(squadsUser, {Plot, d3, width}))}
