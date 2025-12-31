@@ -40,6 +40,7 @@ const bootstrapStatic = FileAttachment("data/bootstrapStatic.json").json();
 const details = FileAttachment("data/details.json").json();
 const matchResults = FileAttachment("data/matchResults.json").json();
 const squads = FileAttachment("data/squads.json").json();
+const summaries = FileAttachment("data/summaries.json").json();
 ```
 
 ```js
@@ -70,12 +71,10 @@ const thirdToLastPointsGap = userInThird.total && userInLast.total ? Math.abs(us
 const lastToFirstPointsGap = userInLast.total && userInFirst.total ? Math.abs(userInLast.total - userInFirst.total) : 0;
 ```
 
-## Gameweek ${maxGameweek}: ${matchResults.title}
-
-<div>
-  <p style="max-width: 1000px;">${matchResults.sentence}</p>
+<div class="hero">
+  <h1>Gameweek ${maxGameweek}: ${summaries.title}</h1>
+  <p style="font-size: 1.2rem; color: var(--theme-foreground-muted);">${summaries.hero}</p>
 </div>
-
 
 ```js
 // Only show cards if we have valid data
@@ -160,10 +159,20 @@ const squadsUser = filterForInput(squads, player, "owner");
 
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => formChart(matchResultsUser, {Plot, d3, width}))}
+    ${resize((width) => formChart(matchResultsUser, {
+      Plot, d3, width,
+      title: summaries.formChartTitle,
+      subtitle: summaries.formChartSubtitle
+    }))}
+    
   </div>
   <div class="card">
-    ${resize((width) => consistencyBullet(matchResultsUser, {Plot, d3, width}))}
+    ${resize((width) => consistencyBullet(matchResultsUser, {
+      Plot, d3, width,
+      title: summaries.consistencyChartTitle,
+      subtitle: summaries.consistencyChartSubtitle
+    }))}
+    
   </div>
 </div>
 
