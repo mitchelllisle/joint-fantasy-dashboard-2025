@@ -1,4 +1,4 @@
 node_modules
 dist
-.observablehq/cache
+src/.observablehq/cache
 .DS_Store
