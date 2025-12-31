@@ -1,1 +1,0 @@
-function u(n){if(n.length===0||n.length===1)return 0;const r=[...n].sort((t,l)=>t-l),e=r.length,c=r.reduce((t,l)=>t+l,0);if(c===0)return 0;let o=0;for(let t=0;t<e;t++)o+=(t+1)*r[t];return 2*o/(e*c)-(e+1)/e}export{u as calculateGini};
