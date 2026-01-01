@@ -13,6 +13,6 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@types/node": "^25.0.3",
-    "joint-fpl-lib": "^1.1.0"
+    "joint-fpl-lib": "^1.2.0"
   }
 }
