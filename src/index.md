@@ -1,5 +1,5 @@
 ---
-theme: [dashboard]
+theme: [dashboard, midnight]
 title: Dashboard
 ---
 
@@ -15,7 +15,8 @@ import {
   positionBreakdown,
   consistencyBullet,
   formChart,
-  bonusPoints
+  bonusPoints,
+  colours
 } from "npm:joint-fpl-lib";
 ```
 
@@ -88,9 +89,9 @@ if (userInFirst.total && userInLast.total) {
         <br>
         <br>
         <span class="muted">
-            ${userInFirst.player_first_name} is winning with <b style="color: #6cc5b0">${userInFirst.total}</b> points. 
-            He is <b style="color: #6cc5b0">${firstToSecondPointsGap}</b> points off ${userInSecond.player_first_name || "second place"} in second
-            and <b style="color: #6cc5b0">${lastToFirstPointsGap}</b> points away from last.
+            ${userInFirst.player_first_name} is winning with <b style="color: #00ff85">${userInFirst.total}</b> points. 
+            He is <b style="color: #00ff85">${firstToSecondPointsGap}</b> points off ${userInSecond.player_first_name || "second place"} in second
+            and <b style="color: #00ff85">${lastToFirstPointsGap}</b> points away from last.
         </span>
       </a>
       <a class="card" style="color: inherit;">
@@ -100,9 +101,9 @@ if (userInFirst.total && userInLast.total) {
         <br>
         <br>
         <span class="muted">
-            ${userInLast.player_first_name} is in last place on <b style="color: #ff725c">${userInLast.total}</b> points. 
-            He is <b style="color: #ff725c">${thirdToLastPointsGap}</b> points off ${userInThird.player_first_name || "third place"} in third
-            and <b style="color: #ff725c">${lastToFirstPointsGap}</b> off first place.
+            ${userInLast.player_first_name} is in last place on <b style="color: #e90052">${userInLast.total}</b> points. 
+            He is <b style="color: #e90052">${thirdToLastPointsGap}</b> points off ${userInThird.player_first_name || "third place"} in third
+            and <b style="color: #e90052">${lastToFirstPointsGap}</b> off first place.
         </span>
       </a>
     </div>
