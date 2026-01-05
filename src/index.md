@@ -15,8 +15,7 @@ import {
   positionBreakdown,
   consistencyBullet,
   formChart,
-  bonusPoints,
-  colours
+  bonusPoints
 } from "npm:joint-fpl-lib";
 ```
 
@@ -150,6 +149,14 @@ function filterForInput(data, player, field) {
 const matchResultsUser = filterForInput(matchResults.data, player, "team");
 const detailsUser = filterForInput(details, player, "name");
 const squadsUser = filterForInput(squads, player, "owner");
+
+// Calculate season-long bench points
+// Create data structure that benchPoints chart expects, but use total_points for season aggregation
+const benchPlayers = squadsUser.filter(p => p.position > 11);
+const seasonBenchPoints = benchPlayers.map(p => ({
+  ...p,
+  event_points: p.total_points // Use total_points instead of event_points for season aggregation
+}));
 ```
 
 <div class="grid grid-cols-2">
@@ -192,7 +199,7 @@ const squadsUser = filterForInput(squads, player, "owner");
     ${resize((width) => positionBreakdown(squadsUser, {Plot, d3, width}))}
   </div>
   <div class="card">
-    ${resize((width) => benchPoints(squadsUser, {Plot, d3, width}))}
+    ${resize((width) => benchPoints(seasonBenchPoints, {Plot, d3, width}))}
   </div>
 </div>
 
