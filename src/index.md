@@ -199,7 +199,12 @@ const seasonBenchPoints = benchPlayers.map(p => ({
     ${resize((width) => positionBreakdown(squadsUser, {Plot, d3, width}))}
   </div>
   <div class="card">
-    ${resize((width) => benchPoints(seasonBenchPoints, {Plot, d3, width}))}
+    ${resize((width) => benchPoints(seasonBenchPoints, {
+      Plot, 
+      d3, 
+      width,
+      subtitle: "Total points scored by benched players this season"
+    }))}
   </div>
 </div>
 
