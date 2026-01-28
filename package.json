@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "observable preview",
     "build": "observable build",
-    "clean": "rm -rf dist .observablehq/cache"
+    "clean": "rm -rf dist src/.observablehq/cache"
   },
   "devDependencies": {
     "@observablehq/framework": "^1.0.0"
@@ -13,6 +13,12 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@types/node": "^25.0.3",
-    "joint-fpl-lib": "^1.2.2"
+    "esbuild": "^0.27.2",
+    "joint-fpl-lib": "^1.6.0",
+    "tar": "^7.5.7"
+  },
+  "overrides": {
+    "tar": "^7.5.7",
+    "esbuild": "^0.27.2"
   }
 }
