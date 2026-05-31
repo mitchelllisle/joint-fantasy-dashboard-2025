@@ -72,8 +72,8 @@ const lastToFirstPointsGap = userInLast.total && userInFirst.total ? Math.abs(us
 ```
 
 <div class="hero">
-  <h1>Gameweek ${maxGameweek}: ${summaries.title}</h1>
-  <p style="font-size: 1.2rem; color: var(--theme-foreground-muted);">${summaries.hero}</p>
+  <h1>Season 2024/25 Final Standings</h1>
+  <p style="font-size: 1.2rem; color: var(--theme-foreground-muted);">The season has concluded! Here's a complete summary of how everyone performed over ${maxGameweek} gameweeks of Fantasy Draft action.</p>
 </div>
 
 ```js
@@ -82,15 +82,15 @@ if (userInFirst.total && userInLast.total) {
   display(html`
     <div class="grid grid-cols-4">
       <a class="card" style="color: inherit;">
-        <h2>🏆 1st Place</h2>
+        <h2>🏆 Champion</h2>
         <br>
         <span class="big">${userInFirst.player_first_name} ${choice(firstEmojis)}</span>
         <br>
         <br>
         <span class="muted">
-            ${userInFirst.player_first_name} is winning with <b style="color: #00ff85">${userInFirst.total}</b> points. 
-            He is <b style="color: #00ff85">${firstToSecondPointsGap}</b> points off ${userInSecond.player_first_name || "second place"} in second
-            and <b style="color: #00ff85">${lastToFirstPointsGap}</b> points away from last.
+            ${userInFirst.player_first_name} won the season with <b style="color: #00ff85">${userInFirst.total}</b> points. 
+            Finished <b style="color: #00ff85">${firstToSecondPointsGap}</b> points ahead of ${userInSecond.player_first_name || "second place"}
+            and <b style="color: #00ff85">${lastToFirstPointsGap}</b> points clear of last place.
         </span>
       </a>
       <a class="card" style="color: inherit;">
@@ -100,9 +100,9 @@ if (userInFirst.total && userInLast.total) {
         <br>
         <br>
         <span class="muted">
-            ${userInLast.player_first_name} is in last place on <b style="color: #e90052">${userInLast.total}</b> points. 
-            He is <b style="color: #e90052">${thirdToLastPointsGap}</b> points off ${userInThird.player_first_name || "third place"} in third
-            and <b style="color: #e90052">${lastToFirstPointsGap}</b> off first place.
+            ${userInLast.player_first_name} finished in last place with <b style="color: #e90052">${userInLast.total}</b> points. 
+            Ended <b style="color: #e90052">${thirdToLastPointsGap}</b> points behind ${userInThird.player_first_name || "third place"}
+            and <b style="color: #e90052">${lastToFirstPointsGap}</b> behind the champion.
         </span>
       </a>
     </div>
